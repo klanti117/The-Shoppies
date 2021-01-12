@@ -37,20 +37,25 @@
 
             var movie=$("#movie").val()
             var result=""
-            var url="http://www.omdbapi.com/?apikey="+apiKey
+            var url="http://www.omdbapi.com/?apikey="+apiKey+"&type=movie"
+// type=movie is hard coded into the url, as the requirements only asks for movies in the return result            
             $.ajax({
-                method:'GET',
-                url:url+"&t="+movie,
-                success:function(data){
+                type: 'GET',
+                url: url + "&s=" + movie,
+                dataType: "JSON",
+                data: JSON.stringify({}),
+                success: function (data) {
                     console.log(data)
-                    result=`
-                        <h3>${data.Title}</h3>
-                        <h5>${data.Year}</h5>
-                        <h5>${data.Type}</h5>
-                    `
-                    $("#result").html(result)
+                    let movies = data.Search; //this puts the array of objs into the variable
+                    $.each(movies, (index, movie) => {
+                        result += `
+                            <li>${movie.Title}</li>
+                            <li>${movie.Year}</li>
+                        `;
+                    });
+                    $('#result').html(result);
                 }
-            })
+            });
         })
     })
 </script>
