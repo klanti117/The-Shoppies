@@ -6,6 +6,11 @@
     <title>The Shoppies</title>
     <!-- bootstrap cdn -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        li{
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -49,8 +54,11 @@
                     let movies = data.Search; //this puts the array of objs into the variable
                     $.each(movies, (index, movie) => {
                         result += `
-                            <li>${movie.Title}</li>
-                            <li>${movie.Year}</li>
+                            <li>${movie.Title} (${movie.Year})
+                                <a onclick="" class="btn btn-outline-dark .btn-sm" 
+                                    href="#">Nominate
+                                </a>
+                            </li>
                         `;
                     });
                     $('#result').html(result);
