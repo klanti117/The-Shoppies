@@ -1,7 +1,14 @@
+const movie=document.getElementById("movie");
+var searchMovie=""
+
+
 $(document).ready(function(){
     var apiKey="19ae373a"
-    $("#movieForm").submit(function(event){
-        event.preventDefault()
+    // $("#movieForm").submit(function(event){
+        movie.addEventListener('keyup',(e)=>{
+            searchMovie=e.target.value;
+            console.log(searchMovie)
+            e.preventDefault()
 
         var movie=$("#movie").val()
         var result=""
@@ -9,11 +16,11 @@ $(document).ready(function(){
 // type=movie is hard coded into the url, as the requirements only asks for movies in the return result            
         $.ajax({
             type: 'GET',
-            url: url + "&s=" + movie,
+            url: url + "&s=" + searchMovie,
             dataType: "JSON",
             data: JSON.stringify({}),
             success: function (data) {
-                console.log(data)
+                // console.log(data)
                 let movies = data.Search; //this puts the array of objs into the variable
                 $.each(movies, (index, movie) => {
                     result += `
@@ -23,6 +30,9 @@ $(document).ready(function(){
                     `;
                 });
                 $('.result_ul').html(result);
+            },
+            error: function () {
+                alert('error in btnTestProduceUsageSettings');
             }
         });
     })        
