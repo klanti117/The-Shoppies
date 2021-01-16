@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(227, 227, 227);
+}
+.nominated{
+    background-color:gainsboro;
+    color: gray;
+}
+.searchArea{
+   width:50%;
+   margin:100px auto;
+   background: #f7f7f7;
+   box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+li{
+   background: #fff;
+   background: #fff;
+   height: 50px;
+   color: #666;
+   line-height: 40px;/* centers the text in the row */
+
+}
+li:nth-child(2n){
+   background:#f7f7f7;
+}
