@@ -1,6 +1,9 @@
 body{
     background-color: rgb(227, 227, 227);
 }
+button{
+   border-radius: 4px;
+}
 .nominated{
     background-color:gainsboro;
     color: gray;
