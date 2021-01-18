@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@5.12.0/dist/styles.css" />
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- jQuery Toast css -->
+<link rel="stylesheet" href="css/jqueryToast.css">
 <!-- Custom CSS     -->
     <link rel="stylesheet" href="css/style.css">
 <!-- jQuery CDN -->
@@ -71,13 +73,13 @@
 <!------------------------------- END of SEARCH AREA --------------------------------->
 <!------------------------------- DISPLAY AREA --------------------------------->
 <!----------------------------------Search RESULTS -------------------------------------------------->
-    <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px;">
+    <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px; margin-left:20px">
         <div id="results" class="Polaris-Layout">
             <div id="searchRes" class="Polaris-Layout__Section Polaris-Layout__Section--oneHalf">
                 <div class="Polaris-Card">
                     <div class="Polaris-Card__Header">
                             <div class="Polaris-Stack__Item Polaris-Stack__Item--fill">
-                                <h2 class="Polaris-Heading">Results for "ram"</h2>
+                                <h2 class="Polaris-Heading">Results for <span id="searchedTerm"><span></h2>
                             </div>
                     </div>
                     <div class="Polaris-Card__Section">
@@ -121,9 +123,7 @@
 <!-------------------------------END of DISPLAY AREA ------------------------------------------------------->
 </div>
 <!--------------------------------end of main-continer------------------------------------------------------>
-<div id="alertBanner">
-
-</div>
+<script src="js/jqueryToast.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

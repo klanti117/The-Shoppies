@@ -1,3 +1,7 @@
+*{
+   margin: 0;
+   padding: 0;
+}
 body{
    background: #EFEFBB;  /* fallback for old browsers */
    background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
@@ -5,7 +9,7 @@ body{
    font-size: 15px;
 }
 #main-container{
-    margin: 20px;
+   margin: 20px;
 }
 button{
    border-radius: 4px;

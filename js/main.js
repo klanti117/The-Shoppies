@@ -27,8 +27,7 @@ $(document).ready(function(){
                         <li><i class="fas fa-video"></i>
                         ${movie.Title} (${movie.Year})
                             <button id="nominateBtn" class="Polaris-Button Polaris-Button--primary"
-                                type="button"><span class="Polaris-Button__Content"><span
-                                class="Polaris-Button__Text">Nominate</span></span></button>
+                                type="button">Nominate</button>
                         </li>
                     `;
                 });
@@ -44,14 +43,27 @@ $(document).ready(function(){
 $("#result_ul").on("click","#nominateBtn",function(event){
 //grabbing movie data
     var movieData= $(this).parent().text();
-    $(this).attr("disabled", true);
+    //  $(this).attr("disabled", true);
+     $(this).addClass("Polaris-Button Polaris-Button--disabled");
 //li count 
     var nomination_length=$("#nomination_ul li").length;
     if(nomination_length<6){
 //append it to nominate's ul
-        $("#nomination_ul").append('<li id="nomination_li"><i class="fas fa-star"></i>'+movieData+'<button id="removeBtn" class="Polaris-Button Polaris-Button--destructive" type="button"><span class="Polaris-Button__Content"><span class="Polaris-Button__Text">Remove</span></span></button></li>')
+        $("#nomination_ul").append('<li id="nomination_li"><i class="fas fa-star"></i>'+movieData+'<button id="removeBtn" class="Polaris-Button Polaris-Button--destructive" type="button">Remove</button></li>')
     }else{
-        alert("can not add to nomination list anymore")
+        $.toast({
+            text : "You can only add 5 nominations",
+            showHideTransition : 'slide',  
+            bgColor : 'white',             
+            textColor : '#000',           
+            allowToastClose : false,       
+            hideAfter : 5000,                              
+            textAlign : 'center',            
+            width:'auto',
+            height:'800px',
+            position : 'top-center',       
+        })
+        $(this).removeClass("Polaris-Button Polaris-Button--disabled");
     }
     event.stopPropagation();
 });
