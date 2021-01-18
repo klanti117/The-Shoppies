@@ -6,8 +6,10 @@
     <title>The Shoppies</title>
 <!-- Font Awesome     -->
     <script src="https://kit.fontawesome.com/bf4314489e.js" crossorigin="anonymous"></script>
+<!-- Polaris CDN -->
+<link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@5.12.0/dist/styles.css" />
 <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- Custom CSS     -->
     <link rel="stylesheet" href="css/style.css">
 <!-- jQuery CDN -->
@@ -15,38 +17,113 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h3>The Shoppies</h3>
-    <div class="searchArea">
-        <h5>Movie title</h5>
-        <form id="movieForm" autocomplete="off">
-            <div class="form-group">
-                <label for="Movie">Movie Name</label>
-                <input class="form-control" type="text" id="movie" placeholder="Movie...">
+    <div id="main-container">
+        <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px; text-align: center; margin-top:20px;">
+            <p class="Polaris-DisplayText Polaris-DisplayText--sizeExtraLarge">The Shopppies</p>
+            <div id="PolarisPortalsContainer"></div>
+        </div>
+<!------------------------------- SEARCH AREA ---------------------------------------->
+        <div class="searchArea"
+            style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px;">
+            <div style="height: 100px;">
+                <div role="combobox" aria-expanded="false" aria-owns="PolarisComboBox2" aria-controls="PolarisComboBox2"
+                    aria-haspopup="true" tabindex="0">
+                    <div>
+                        <div class="">
+                            <div class="Polaris-Labelled__LabelWrapper">
+                                <div class="Polaris-Label"><label id="PolarisTextField2Label" for="PolarisTextField2"
+                                    class="Polaris-Label__Text">Movie title</label>
+                                </div>
+                            </div>
+                            <div class="Polaris-Connected">
+                                <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+                                    <div class="Polaris-TextField">
+                                        <div class="Polaris-TextField__Prefix" id="PolarisTextField2Prefix">
+                                            <span class="Polaris-Icon Polaris-Icon--colorInkLighter Polaris-Icon--isColored"><svg
+                                                viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false"
+                                                aria-hidden="true">
+                                                <path
+                                                    d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm9.707 4.293l-4.82-4.82A5.968 5.968 0 0 0 14 8 6 6 0 0 0 2 8a6 6 0 0 0 6 6 5.968 5.968 0 0 0 3.473-1.113l4.82 4.82a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414z">
+                                                </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <form id="movieForm" autocomplete="off">
+                                            <input id="movie" placeholder="Search for a movie"
+                                                autocomplete="off" class="Polaris-TextField__Input"
+                                                aria-labelledby="PolarisTextField2Label PolarisTextField2Prefix"
+                                                aria-invalid="false" aria-autocomplete="list" aria-multiline="false" value=""
+                                                tabindex="0" aria-controls="Polarispopover2" aria-owns="Polarispopover2"
+                                                aria-expanded="false">
+                                        </form>
+                                        <div class="Polaris-TextField__Backdrop"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-    <div id="displayArea" class="row">
-<!-----------------------------------RESULTS ---------------------------------------->
-        <div id="results" class="col-sm-6 m-auto">
-            <h5>Results for "ram"</h5>
-            <ul class="result_ul">
-                <li style="display:none">
-                    <button style="display:none" class="nominateBtn">Nominate</button>
-                </li>
-            </ul>
+            <div id="PolarisPortalsContainer">
+                <div data-portal-id="popover-Polarisportal1"></div>
+            </div>
         </div>
-<!-----------------------------------RESULTS ---------------------------------------->
-<!-----------------------------------NOMINATIONS ---------------------------------------->
-        <div id="nominations" class="col-sm-6 m-auto">
-            <h5>Nominations</h5>
-            <ul class="nomination_ul">
-                <li style="display:none" class="nomination_li">
-                    <button style="display:none" class="removeBtn">Remove</button>
-                </li>
-            </ul>
+<!------------------------------- END of SEARCH AREA --------------------------------->
+<!------------------------------- DISPLAY AREA --------------------------------->
+<!----------------------------------Search RESULTS -------------------------------------------------->
+    <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb; --p-frame-offset:0px;">
+        <div id="results" class="Polaris-Layout">
+            <div id="searchRes" class="Polaris-Layout__Section Polaris-Layout__Section--oneHalf">
+                <div class="Polaris-Card">
+                    <div class="Polaris-Card__Header">
+                            <div class="Polaris-Stack__Item Polaris-Stack__Item--fill">
+                                <h2 class="Polaris-Heading">Results for "ram"</h2>
+                            </div>
+                    </div>
+                    <div class="Polaris-Card__Section">
+                        <div class="Polaris-ResourceList__ResourceListWrapper">
+                            <ul id="result_ul">
+                                <li style="display:none">
+                                    <button style="display:none" id="nominateBtn">Nominate</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="PolarisPortalsContainer"></div>
+<!-----------------------------------END of Search RESULTS -------------------------------------------------->
+<!-----------------------------------NOMINATIONS ------------------------------------------------------------>
+            <div id="nominations" class="Polaris-Layout__Section Polaris-Layout__Section--oneHalf">
+                <div class="Polaris-Card">
+                    <div class="Polaris-Card__Header">
+                        <div class="Polaris-Stack Polaris-Stack--alignmentBaseline">
+                            <div class="Polaris-Stack__Item Polaris-Stack__Item--fill">
+                                <h2 class="Polaris-Heading">Nominations</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Polaris-Card__Section">
+                        <div class="Polaris-ResourceList__ResourceListWrapper">
+                            <ul id="nomination_ul">
+                                <li style="display:none" id="nomination_li">
+                                    <button style="display:none" id="removeBtn">Remove</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-<!-----------------------------------NOMINATIONS ---------------------------------------->
+        <div id="PolarisPortalsContainer"></div>
+<!-----------------------------------END of NOMINATIONS --------------------------------------------------->
     </div>
+<!-------------------------------END of DISPLAY AREA ------------------------------------------------------->
+</div>
+<!--------------------------------end of main-continer------------------------------------------------------>
+<div id="alertBanner">
+
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>
